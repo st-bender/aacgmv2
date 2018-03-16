@@ -35,13 +35,13 @@ def test_aacgmConvert_G2A_coeff():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 1135, G2A)
     np.testing.assert_almost_equal(mlat, 48.1896, decimal=4)
     np.testing.assert_almost_equal(mlon, 57.7635, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.1775, decimal=4)
 
     aacgmv2._aacgmv2.setDateTime(2018, 1, 1, 0, 0, 0)
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, G2A)
     np.testing.assert_almost_equal(mlat, 58.1633, decimal=4)
     np.testing.assert_almost_equal(mlon, 81.0719, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.0457, decimal=4)
 
 
 def test_aacgmConvert_A2G_coeff():
@@ -50,13 +50,13 @@ def test_aacgmConvert_A2G_coeff():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 1135, A2G)
     np.testing.assert_almost_equal(mlat, 30.7534, decimal=4)
     np.testing.assert_almost_equal(mlon, -94.1806, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1133.6241, decimal=4)
 
     aacgmv2._aacgmv2.setDateTime(2018, 1, 1, 0, 0, 0)
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, A2G)
     np.testing.assert_almost_equal(mlat, 50.3910, decimal=4)
     np.testing.assert_almost_equal(mlon, -77.7919, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 305.7138, decimal=4)
 
 
 def test_aacgmConvert_G2A_TRACE():
@@ -64,13 +64,13 @@ def test_aacgmConvert_G2A_TRACE():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 1135, G2A | TRACE)
     np.testing.assert_almost_equal(mlat, 48.1948, decimal=4)
     np.testing.assert_almost_equal(mlon, 57.7588, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.1775, decimal=4)
 
     aacgmv2._aacgmv2.setDateTime(2018, 1, 1, 0, 0, 0)
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, G2A | TRACE)
     np.testing.assert_almost_equal(mlat, 58.1633, decimal=4)
     np.testing.assert_almost_equal(mlon, 81.0756, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.0457, decimal=4)
 
 
 def test_aacgmConvert_A2G_TRACE():
@@ -78,13 +78,13 @@ def test_aacgmConvert_A2G_TRACE():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 1135, A2G | TRACE)
     np.testing.assert_almost_equal(mlat, 30.7644, decimal=4)
     np.testing.assert_almost_equal(mlon, -94.1809, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1133.6277, decimal=4)
 
     aacgmv2._aacgmv2.setDateTime(2018, 1, 1, 0, 0, 0)
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, A2G | TRACE)
     np.testing.assert_almost_equal(mlat, 50.3958, decimal=4)
     np.testing.assert_almost_equal(mlon, -77.8019, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 305.7156, decimal=4)
 
 
 def test_aacgmConvert_high_denied():
@@ -98,7 +98,7 @@ def test_aacgmConvert_high_TRACE():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 5500, G2A | TRACE)
     np.testing.assert_almost_equal(mlat, 59.9748, decimal=4)
     np.testing.assert_almost_equal(mlon, 57.7425, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.8626, decimal=4)
 
 
 def test_aacgmConvert_high_ALLOWTRACE():
@@ -106,7 +106,7 @@ def test_aacgmConvert_high_ALLOWTRACE():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 5500, G2A | ALLOWTRACE)
     np.testing.assert_almost_equal(mlat, 59.9748, decimal=4)
     np.testing.assert_almost_equal(mlon, 57.7425, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.8626, decimal=4)
 
 
 def test_aacgmConvert_high_BADIDEA():
@@ -114,7 +114,7 @@ def test_aacgmConvert_high_BADIDEA():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 5500, G2A | BADIDEA)
     np.testing.assert_almost_equal(mlat, 58.7154, decimal=4)
     np.testing.assert_almost_equal(mlon, 56.5830, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.8626, decimal=4)
 
 
 def test_aacgmConvert_GEOCENTRIC_G2A_coeff():
@@ -123,7 +123,7 @@ def test_aacgmConvert_GEOCENTRIC_G2A_coeff():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 1135, G2A | GEOCENTRIC)
     np.testing.assert_almost_equal(mlat, 48.3779, decimal=4)
     np.testing.assert_almost_equal(mlon, 57.7974, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.1781, decimal=4)
 
 
 def test_aacgmConvert_GEOCENTRIC_A2G_coeff():
@@ -132,7 +132,7 @@ def test_aacgmConvert_GEOCENTRIC_A2G_coeff():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 1135, A2G | GEOCENTRIC)
     np.testing.assert_almost_equal(mlat, 30.6101, decimal=4)
     np.testing.assert_almost_equal(mlon, -94.1806, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1135.0000, decimal=4)
 
 
 def test_aacgmConvert_GEOCENTRIC_G2A_TRACE():
@@ -141,7 +141,7 @@ def test_aacgmConvert_GEOCENTRIC_G2A_TRACE():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 1135, G2A | TRACE | GEOCENTRIC)
     np.testing.assert_almost_equal(mlat, 48.3830, decimal=4)
     np.testing.assert_almost_equal(mlon, 57.7926, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1.1781, decimal=4)
 
 
 def test_aacgmConvert_GEOCENTRIC_A2G_TRACE():
@@ -150,10 +150,9 @@ def test_aacgmConvert_GEOCENTRIC_A2G_TRACE():
     mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 1135, A2G | TRACE | GEOCENTRIC)
     np.testing.assert_almost_equal(mlat, 30.6211, decimal=4)
     np.testing.assert_almost_equal(mlon, -94.1809, decimal=4)
-    assert r == 1
+    np.testing.assert_almost_equal(r, 1135.0000, decimal=4)
 
 
 def test_forbidden():
-    mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(7, 0, 0, G2A)
-    assert np.isnan(mlat)
-    assert np.isnan(mlon)
+    with pytest.raises(RuntimeError):
+        mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(7, 0, 0, G2A)
