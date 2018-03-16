@@ -17,6 +17,11 @@ dtObj = dt.datetime(*date)
 def test_module_structure():
     assert aacgmv2
     assert aacgmv2.convert
+    assert aacgmv2.convert_mlt
+    assert aacgmv2.subsol
+    assert aacgmv2.set_coeff_path
+    assert aacgmv2.AACGM_v2_DAT_PREFIX
+    assert aacgmv2.IGRF_12_COEFFS
 
 
 def test_output_type():
@@ -93,12 +98,18 @@ def test_convert_result_values_shape():
                                          [63, 64, 65]]),
                                0, 300, dtObj)
     aacgmv2._aacgmv2.setDateTime(*date)
-    assert (lat[0, 0], lon[0, 0], 1) == aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, G2A)
-    assert (lat[0, 1], lon[0, 1], 1) == aacgmv2._aacgmv2.aacgmConvert(61, 0, 300, G2A)
-    assert (lat[0, 2], lon[0, 2], 1) == aacgmv2._aacgmv2.aacgmConvert(62, 0, 300, G2A)
-    assert (lat[1, 0], lon[1, 0], 1) == aacgmv2._aacgmv2.aacgmConvert(63, 0, 300, G2A)
-    assert (lat[1, 1], lon[1, 1], 1) == aacgmv2._aacgmv2.aacgmConvert(64, 0, 300, G2A)
-    assert (lat[1, 2], lon[1, 2], 1) == aacgmv2._aacgmv2.aacgmConvert(65, 0, 300, G2A)
+    np.testing.assert_allclose((lat[0, 0], lon[0, 0], 1.04566),
+            aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, G2A), rtol=1e-5)
+    np.testing.assert_allclose((lat[0, 1], lon[0, 1], 1.045613),
+            aacgmv2._aacgmv2.aacgmConvert(61, 0, 300, G2A), rtol=1e-5)
+    np.testing.assert_allclose((lat[0, 2], lon[0, 2], 1.04556),
+            aacgmv2._aacgmv2.aacgmConvert(62, 0, 300, G2A), rtol=1e-5)
+    np.testing.assert_allclose((lat[1, 0], lon[1, 0], 1.045515),
+            aacgmv2._aacgmv2.aacgmConvert(63, 0, 300, G2A), rtol=1e-5)
+    np.testing.assert_allclose((lat[1, 1], lon[1, 1], 1.045468),
+            aacgmv2._aacgmv2.aacgmConvert(64, 0, 300, G2A), rtol=1e-5)
+    np.testing.assert_allclose((lat[1, 2], lon[1, 2], 1.045423),
+            aacgmv2._aacgmv2.aacgmConvert(65, 0, 300, G2A), rtol=1e-5)
 
 
 def test_convert_datetime_date():
@@ -143,15 +154,19 @@ def test_convert_result_values_A2G_trace():
 def test_convert_result_values_allowtrace():
     lat, lon = aacgmv2.convert(60, 0, [300, 5000], dtObj, allowtrace=True)
     aacgmv2._aacgmv2.setDateTime(*date)
-    assert (lat[0], lon[0], 1) == aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, ALLOWTRACE)
-    assert (lat[1], lon[1], 1) == aacgmv2._aacgmv2.aacgmConvert(60, 0, 5000, ALLOWTRACE)
+    np.testing.assert_allclose((lat[0], lon[0], 1.04566),
+            aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, ALLOWTRACE), rtol=1e-5)
+    np.testing.assert_allclose((lat[1], lon[1], 1.783356),
+            aacgmv2._aacgmv2.aacgmConvert(60, 0, 5000, ALLOWTRACE), rtol=1e-5)
 
 
 def test_convert_result_values_badidea():
     lat, lon = aacgmv2.convert(60, 0, [300, 5000], dtObj, badidea=True)
     aacgmv2._aacgmv2.setDateTime(*date)
-    assert (lat[0], lon[0], 1) == aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, BADIDEA)
-    assert (lat[1], lon[1], 1) == aacgmv2._aacgmv2.aacgmConvert(60, 0, 5000, BADIDEA)
+    np.testing.assert_allclose((lat[0], lon[0], 1.04566),
+            aacgmv2._aacgmv2.aacgmConvert(60, 0, 300, BADIDEA), rtol=1e-5)
+    np.testing.assert_allclose((lat[1], lon[1], 1.783356),
+            aacgmv2._aacgmv2.aacgmConvert(60, 0, 5000, BADIDEA), rtol=1e-5)
 
 
 def test_convert_result_values_geocentric():
@@ -197,9 +212,8 @@ def test_exception_lat90():
 
 
 def test_forbidden():
-    mlat, mlon = aacgmv2.convert(7, 0, 0)
-    assert np.isnan(mlat)
-    assert np.isnan(mlon)
+    with pytest.raises(RuntimeError):
+        mlat, mlon = aacgmv2.convert(7, 0, 0)
 
 
 def test_MLT_forward_backward():
