@@ -80,7 +80,13 @@ setup(
     ],
     ext_modules=[
         Extension('aacgmv2._aacgmv2',
-                  sources=['src/aacgmv2/aacgmv2module.c', 'src/c_aacgm_v2/aacgmlib_v2.c', 'src/c_aacgm_v2/genmag.c', 'src/c_aacgm_v2/igrflib.c'],
+                  sources=['src/aacgmv2/aacgmv2module.c',
+                      'src/c_aacgm_v2/aacgmlib_v2.c',
+                      'src/c_aacgm_v2/astalglib.c',
+                      'src/c_aacgm_v2/genmag.c',
+                      'src/c_aacgm_v2/igrflib.c',
+                      'src/c_aacgm_v2/mlt_v2.c',
+                      'src/c_aacgm_v2/rtime.c'],
                   include_dirs=['src/c_aacgm_v2'])
     ],
     entry_points={
