@@ -21,6 +21,18 @@
 #define ALLOWTRACE 4	/* if height is >2000 km use tracing, else use coefs */
 #define BADIDEA    8	/* use coefficients above 2000 km; Terrible idea!!   */
 #define GEOCENTRIC 16	/* assume inputs are geocentric with sphere RE       */
+#ifndef M_PI
+  #define M_PI 3.14159265358979323846 /* define M_PI if not already */
+#endif
+
+/* added for MSC compatibility */
+#ifdef _MSC_VER
+  #ifndef NAN
+    #include <float.h>
+    #define INFINITY (DBL_MAX+DBL_MAX)
+    #define NAN (INFINITY-INFINITY)
+  #endif
+#endif
 
 /*****************************************************************************
  * function prototypes
@@ -31,7 +43,7 @@ int AACGM_v2_Rylm(double colat, double lon, int order, double *ylmval);
 void AACGM_v2_Alt2CGM(double r_height_in, double r_lat_alt, double *r_lat_adj);
 int AACGM_v2_CGM2Alt(double r_height_in, double r_lat_in, double *r_lat_adj);
 double AACGM_v2_Sgn(double a, double b);
-int convert_geo_coord(double lat_in, double lon_in, double height_in,
+int convert_geo_coord_v2(double lat_in, double lon_in, double height_in,
                       double *lat_out, double *lon_out, int flag, int order);
 int AACGM_v2_LoadCoefFP(FILE *fp, int code);
 int AACGM_v2_LoadCoef(char *fname, int code);

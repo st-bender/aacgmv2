@@ -1,0 +1,32 @@
+
+v2.4 Changes
+
++ 20170223
++ changed time.c and time.h to rtime.c and rtime.h to be consistent with RST
+  distribution and to avoid any conflict with the standard time library.
+
+Features:
++ 20170328
++ Added IGRF_Tilt() function to return IGRF dipole tilt angle.
+
++ 20160811
++ Added inverse MLT functions in order to get AACGM-v2 magnetic longitude
+  from MLT
+
+Bug fixes:
+
++ 20170601
++ added logic to MLT-v2 functions to allow them to set AACGM-v2 date/time
+  and interpolate coefficients under the following conditions:
+    1. the AACGM-v2 date/time is not set
+    2. the date/time passed into the MLT-v2 function differs by > 30 days
+  In each case the AACGM-v2 date/time is set to the values passed into the
+  MLT-v2 function. Note that this will change the AACGM-v2 coefficients that
+  are being used on subsequent calls _if_ the date/time is not reset.
+
++ 20170531
++ added 1900 to years in SetNow() function in order for it to work correctly
+
++ 20160816
++ added check for mlon input being NaN and returning NaN if so
+
