@@ -21,15 +21,15 @@ Convert between AACGM and geographic coordinates::
     >>> # geo to AACGM, single numbers
     >>> mlat, mlon = convert(60, 15, 300, date(2013, 11, 3))
     >>> mlat
-    array(57.47207691280528)
+    array(57.47207691)
     >>> mlon
-    array(93.62138045643167)
+    array(93.62138046)
     >>> # AACGM to geo, mix arrays/numbers
     >>> glat, glon = convert([90, -90], 0, 0, date(2013, 11, 3), a2g=True)
     >>> glat
     array([ 82.96656071, -74.33854592])
     >>> glon
-    array([ -84.66516034,  125.84014944])
+    array([-84.66516034, 125.84014944])
 
 Convert between AACGM and MLT::
 
@@ -38,7 +38,7 @@ Convert between AACGM and MLT::
     >>> # MLT to AACGM
     >>> mlon = convert_mlt([0, 12], datetime(2013, 11, 3, 18, 0), m2a=True)
     >>> mlon
-    array([ 159.08967974,  339.08967974])
+    array([159.08967974, 339.08967974])
 
 If you don't know or use Python, you can also use the command line. See details in the full documentation.
 
