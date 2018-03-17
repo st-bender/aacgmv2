@@ -9,6 +9,8 @@ For full documentation of the functions, see :doc:`Reference → aacgmv2 <refere
 
   >>> from aacgmv2 import convert
   >>> from datetime import date
+  >>> from numpy import set_printoptions
+  >>> set_printoptions(precision=8)
   >>> # geo to AACGM, single numbers
   >>> mlat, mlon = convert(60, 15, 300, date(2013, 11, 3))
   >>> mlat

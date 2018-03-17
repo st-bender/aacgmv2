@@ -18,6 +18,8 @@ Convert between AACGM and geographic coordinates::
 
     >>> from aacgmv2 import convert
     >>> from datetime import date
+    >>> from numpy import set_printoptions
+    >>> set_printoptions(precision=8)
     >>> # geo to AACGM, single numbers
     >>> mlat, mlon = convert(60, 15, 300, date(2013, 11, 3))
     >>> mlat
@@ -35,6 +37,8 @@ Convert between AACGM and MLT::
 
     >>> from aacgmv2 import convert_mlt
     >>> from datetime import datetime
+    >>> from numpy import set_printoptions
+    >>> set_printoptions(precision=8)
     >>> # MLT to AACGM
     >>> mlon = convert_mlt([0, 12], datetime(2013, 11, 3, 18, 0), m2a=True)
     >>> mlon
