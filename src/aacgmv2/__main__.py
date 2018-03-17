@@ -69,12 +69,12 @@ def main():
         lats, lons, alts = aacgmv2.convert(array[:, 0], array[:, 1], array[:, 2], date=date, a2g=args.a2g, trace=args.trace,
                                      allowtrace=args.allowtrace, badidea=args.badidea, geocentric=args.geocentric)
         with args.file_out as f:
-            np.savetxt(args.file_out, np.column_stack((lats, lons, alts)), fmt='%.8f')
+            np.savetxt(f, np.column_stack((lats, lons, alts)), fmt='%.8f')
     elif args.subcommand == 'convert_mlt':
         datetime = dt.datetime.strptime(args.datetime, '%Y%m%d%H%M%S')
         out = aacgmv2.convert_mlt(array, datetime, m2a=args.m2a)
         with args.file_out as f:
-            np.savetxt(args.file_out, out, fmt='%.8f')
+            np.savetxt(f, out, fmt='%.8f')
 
 
 if __name__ == '__main__':
