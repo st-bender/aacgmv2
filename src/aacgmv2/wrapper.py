@@ -54,6 +54,8 @@ def convert(lat, lon, alt, date=None, a2g=False, trace=False, allowtrace=False, 
         Converted latitude
     lon_out : ``numpy.ndarray``
         Converted longitude
+    alt_out : ``numpy.ndarray``
+        Converted altitude
 
     Raises
     ======
@@ -115,9 +117,9 @@ def convert(lat, lon, alt, date=None, a2g=False, trace=False, allowtrace=False, 
     flag = A2G*a2g + TRACE*trace + ALLOWTRACE*allowtrace + BADIDEA*badidea + GEOCENTRIC*geocentric
 
     # convert
-    lat_out, lon_out, _ = aacgmConvert_vectorized(lat, lon, alt, flag)
+    lat_out, lon_out, alt_out = aacgmConvert_vectorized(lat, lon, alt, flag)
 
-    return lat_out, lon_out
+    return lat_out, lon_out, alt_out
 
 
 def convert_mlt(arr, datetime, m2a=False):

@@ -19,17 +19,21 @@ Convert between AACGM and geographic coordinates::
     >>> from aacgmv2 import convert
     >>> from datetime import date
     >>> # geo to AACGM, single numbers
-    >>> mlat, mlon = convert(60, 15, 300, date(2013, 11, 3))
+    >>> mlat, mlon, malt = convert(60, 15, 300, date(2013, 11, 3))
     >>> "{0:.8f}".format(float(mlat))
     '57.47207691'
     >>> "{0:.8f}".format(float(mlon))
     '93.62138046'
+    >>> "{0:.8f}".format(float(malt))
+    '1.04566346'
     >>> # AACGM to geo, mix arrays/numbers
-    >>> glat, glon = convert([90, -90], 0, 0, date(2013, 11, 3), a2g=True)
+    >>> glat, glon, galt = convert([90, -90], 0, 0, date(2013, 11, 3), a2g=True)
     >>> ["{0:.8f}".format(float(gl)) for gl in glat]
     ['82.96656071', '-74.33854592']
     >>> ["{0:.8f}".format(float(gl)) for gl in glon]
     ['-84.66516034', '125.84014944']
+    >>> ["{0:.8f}".format(float(ga)) for ga in galt]
+    ['14.12439281', '12.87713137']
 
 Convert between AACGM and MLT::
 
