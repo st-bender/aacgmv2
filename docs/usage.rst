@@ -10,19 +10,19 @@ For full documentation of the functions, see :doc:`Reference → aacgmv2 <refere
   >>> from aacgmv2 import convert
   >>> from datetime import date
   >>> from numpy import set_printoptions
-  >>> set_printoptions(precision=8)
+  >>> set_printoptions(precision=14)
   >>> # geo to AACGM, single numbers
   >>> mlat, mlon = convert(60, 15, 300, date(2013, 11, 3))
   >>> mlat
-  array(57.47207691)
+  array(57.47207691280528)
   >>> mlon
-  array(93.62138046)
+  array(93.62138045643165)
   >>> # AACGM to geo, mix arrays/numbers
   >>> glat, glon = convert([90, -90], 0, 0, date(2013, 11, 3), a2g=True)
   >>> glat
-  array([ 82.96656071, -74.33854592])
+  array([ 82.96656071478961, -74.33854591993322])
   >>> glon
-  array([-84.66516034, 125.84014944])
+  array([-84.66516033615903, 125.840149442005  ])
 
 
 
