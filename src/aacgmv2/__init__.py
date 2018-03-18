@@ -18,6 +18,7 @@ def set_coeff_path():
     _os.environ['IGRF_12_COEFFS'] = IGRF_12_COEFFS
     _os.environ['IGRF_COEFFS'] = IGRF_12_COEFFS
 
+
 set_coeff_path()
 
 
