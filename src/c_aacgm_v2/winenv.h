@@ -29,7 +29,7 @@ int setenv(const char *name, const char *value, int overwrite)
 			return -1;
 	}
 
-	snprintf(envset, 1000, "%s=%s", name, value);
+	_vsnprintf(envset, 1000, _TRUNCATE, "%s=%s", name, value);
 	return putenv(envset);
 }
 
