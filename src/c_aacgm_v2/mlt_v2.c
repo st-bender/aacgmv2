@@ -6,6 +6,11 @@
 #include "rtime.h"
 #include "astalg.h"
 
+/* Macro infinite can't be defined, limit to NAN */
+#if  defined(_WIN32) || defined(_WIN64)
+#define isfinite(x) 1 ? (x) != NAN : 0
+#endif
+
 /*-----------------------------------------------------------------------------
   MLT functions for use with AACGM-v2
 ;
