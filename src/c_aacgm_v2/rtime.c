@@ -15,6 +15,7 @@
 #include <math.h>
 #include <time.h>
 #include "rtime.h"
+#include "winenv.h"
 
 #define DAY_SEC 86400
 
