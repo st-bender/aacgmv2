@@ -7,8 +7,8 @@ import datetime as dt
 import numpy as np
 import pytest
 
-import aacgmv2
-from aacgmv2._aacgmv2 import A2G, G2A, TRACE, BADIDEA, ALLOWTRACE, GEOCENTRIC
+import pyaacgmv2 as aacgmv2
+from pyaacgmv2._aacgmv2 import A2G, G2A, TRACE, BADIDEA, ALLOWTRACE, GEOCENTRIC
 
 date = (2015, 1, 1, 0, 0, 0)
 dtObj = dt.datetime(*date)
