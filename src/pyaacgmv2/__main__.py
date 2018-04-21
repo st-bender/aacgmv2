@@ -11,7 +11,7 @@ import datetime as dt
 
 import numpy as np
 
-import aacgmv2
+import pyaacgmv2 as aacgmv2
 
 try:
     # Python 3
@@ -28,7 +28,7 @@ def main():
 
     parser = argparse.ArgumentParser(description='Converts between geographical coordinates, AACGM-v2, and MLT')
 
-    subparsers = parser.add_subparsers(title='Subcommands', prog='aacgmv2', dest='subcommand',
+    subparsers = parser.add_subparsers(title='Subcommands', prog='pyaacgmv2', dest='subcommand',
                                        description='for help, run %(prog)s SUBCOMMAND -h')
     subparsers.required = True
     parser_convert = subparsers.add_parser('convert', help=('convert to/from geomagnetic coordinates. Input file must '

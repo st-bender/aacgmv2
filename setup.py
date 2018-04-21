@@ -33,7 +33,7 @@ if 'PY_CCOV' in os.environ.keys():
 
 
 setup(
-    name='aacgmv2',
+    name='pyaacgmv2',
     version='2.0.0',
     license='MIT',
     description='A Python wrapper for AACGM-v2 magnetic coordinates',
@@ -44,7 +44,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
-    package_data={'aacgmv2': ['aacgm_coeffs/*.asc', 'igrf12coeffs.txt']},
+    package_data={'pyaacgmv2': ['aacgm_coeffs/*.asc', 'igrf12coeffs.txt']},
     zip_safe=False,
     classifiers=[
         # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -79,8 +79,8 @@ setup(
         'numpy',
     ],
     ext_modules=[
-        Extension('aacgmv2._aacgmv2',
-                  sources=['src/aacgmv2/aacgmv2module.c',
+        Extension('pyaacgmv2._aacgmv2',
+                  sources=['src/pyaacgmv2/aacgmv2module.c',
                       'src/c_aacgm_v2/aacgmlib_v2.c',
                       'src/c_aacgm_v2/astalglib.c',
                       'src/c_aacgm_v2/genmag.c',
@@ -92,7 +92,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'aacgmv2 = aacgmv2.__main__:main',
+            'pyaacgmv2 = pyaacgmv2.__main__:main',
         ]
     },
 )
