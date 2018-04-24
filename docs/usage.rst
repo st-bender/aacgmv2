@@ -7,7 +7,7 @@ Python library
 
 For full documentation of the functions, see :doc:`Reference → aacgmv2 <reference/aacgmv2>`.
 
-  >>> from aacgmv2 import convert
+  >>> from pyaacgmv2 import convert
   >>> from datetime import date
   >>> # geo to AACGM, single numbers
   >>> mlat, mlon, malt = convert(60, 15, 300, date(2013, 11, 3))
