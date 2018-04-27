@@ -236,8 +236,7 @@ def test_exception_lat90():
 
 
 def test_forbidden():
-    with pytest.raises(RuntimeError):
-        mlat, mlon, malt = aacgmv2.convert(7, 0, 0)
+    np.testing.assert_equal(aacgmv2.convert(7, 0, 0), (np.nan, np.nan, np.nan))
 
 
 def test_MLT_forward_backward():

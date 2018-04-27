@@ -40,8 +40,11 @@ aacgmv2_aacgmConvert(PyObject *self, PyObject *args)
 
     err = AACGM_v2_Convert(in_lat, in_lon, height, &out_lat, &out_lon, &r, code);
     if (err < 0) {
-        PyErr_Format(PyExc_RuntimeError, "AACGM_v2_Convert returned error code %d", err);
-        return NULL;
+        PyErr_WarnEx(PyExc_RuntimeWarning,
+            PyBytes_AsString(PyBytes_FromFormat(
+                "AACGM_v2_Convert returned error code %d", err)),
+            1);
+        return Py_BuildValue("ddd", NAN, NAN, NAN);
     }
 
     return Py_BuildValue("ddd", out_lat, out_lon, r);

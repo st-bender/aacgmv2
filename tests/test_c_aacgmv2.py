@@ -89,8 +89,8 @@ def test_aacgmConvert_A2G_TRACE():
 
 def test_aacgmConvert_high_denied():
     aacgmv2._aacgmv2.setDateTime(2014, 3, 22, 3, 11, 0)
-    with pytest.raises(RuntimeError):
-      aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 5500, G2A)
+    np.testing.assert_equal(aacgmv2._aacgmv2.aacgmConvert(45.5, -23.5, 5500, G2A),
+        (np.nan, np.nan, np.nan))
 
 
 def test_aacgmConvert_high_TRACE():
@@ -154,5 +154,5 @@ def test_aacgmConvert_GEOCENTRIC_A2G_TRACE():
 
 
 def test_forbidden():
-    with pytest.raises(RuntimeError):
-        mlat, mlon, r = aacgmv2._aacgmv2.aacgmConvert(7, 0, 0, G2A)
+    np.testing.assert_equal(aacgmv2._aacgmv2.aacgmConvert(7, 0, 0, G2A),
+        (np.nan, np.nan, np.nan))
