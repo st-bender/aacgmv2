@@ -21,7 +21,7 @@ def convert(lat, lon, alt, date=None, a2g=False, trace=False, allowtrace=False, 
     '''Converts to/from geomagnetic coordinates.
 
     This is a user-friendly pythonic wrapper for the low-level C interface
-    functions available in :mod:`aacgmv2._aacgmv2`.
+    functions available in :mod:`pyaacgmv2._aacgmv2`.
 
     Parameters
     ==========
