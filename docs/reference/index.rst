@@ -4,6 +4,6 @@ Reference
 .. toctree::
     :glob:
 
-    aacgmv2
+    pyaacgmv2
     _aacgmv2
     cli
