@@ -125,3 +125,8 @@ Badges
 .. |scrutinizer| image:: https://img.shields.io/scrutinizer/g/cmeeren/aacgmv2/master.svg?style=flat
     :alt: Scrutinizer Status
     :target: https://scrutinizer-ci.com/g/cmeeren/aacgmv2/
+
+
+.. image:: https://api.codacy.com/project/badge/Grade/2b9d243afe654cb0a70c31544444c774
+   :alt: Codacy Badge
+   :target: https://app.codacy.com/app/st-bender/aacgmv2?utm_source=github.com&utm_medium=referral&utm_content=st-bender/aacgmv2&utm_campaign=badger
