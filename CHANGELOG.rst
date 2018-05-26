@@ -2,6 +2,15 @@
 Changelog
 =========
 
+2.3.9 (2018-05-27)
+-----------------------------------------
+
+* Update to AACGM-v2.4, which includes changes to the inverse MLT and
+  dipole tilt functions and some minor bug fixes
+* Updated dependencies
+* Removed support for python 3.3
+
+
 2.0.0 (2016-11-03)
 -----------------------------------------
 
