@@ -4,7 +4,7 @@ __version__ = "2.3.9"
 
 # path and filename prefix for the IGRF coefficients
 AACGM_v2_DAT_PREFIX = _os.path.join(_os.path.realpath(_os.path.dirname(__file__)), 'aacgm_coeffs', 'aacgm_coeffs-12-')
-IGRF_12_COEFFS = _os.path.join(_os.path.realpath(_os.path.dirname(__file__)), 'igrf12coeffs.txt')
+IGRF_12_COEFFS = _os.path.join(_os.path.realpath(_os.path.dirname(__file__)), 'magmodel_1590-2020.txt')
 
 
 def set_coeff_path():
