@@ -3,7 +3,7 @@ import os as _os
 __version__ = "2.3.9"
 
 # path and filename prefix for the IGRF coefficients
-AACGM_v2_DAT_PREFIX = _os.path.join(_os.path.realpath(_os.path.dirname(__file__)), 'aacgm_coeffs', 'aacgm_coeffs-12-')
+AACGM_v2_DAT_PREFIX = _os.path.join(_os.path.realpath(_os.path.dirname(__file__)), 'aacgm_coeffs', 'aacgm_coeffs-13-')
 IGRF_12_COEFFS = _os.path.join(_os.path.realpath(_os.path.dirname(__file__)), 'magmodel_1590-2020.txt')
 
 
