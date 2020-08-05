@@ -8,7 +8,7 @@
 #include "astalg.h"
 
 /*#define DEBUG 1*/
-/* TO DO: should these stuff go in igrflib.h? */
+/* TO DO: should these go in igrflib.h? */
 
 static struct {
 	int year;
@@ -41,7 +41,7 @@ static int    nmx;                          /* order of expansion */
 ; for debugging
 ;+-----------------------------------------------------------------------------
 */
-void pause(void)
+void igrf_pause(void)
 {
 	char ch;
 
@@ -195,8 +195,9 @@ int IGRF_loadcoeffs(void)
 	iyear = 0;
 	for (m=0; m<len; m++) {
 		switch (line[m]) {
-			case 'I': dgrf[iyear] = 0; break;
-			case 'D': dgrf[iyear] = 1; break;
+			case 'U':                         /* for GUFM1 */
+			case 'I': dgrf[iyear] = 0; break; /* for IGRF */
+			case 'D': dgrf[iyear] = 1; break; /* for DGRF */
 			case 'G': iyear++; break;
 		}
 	}
@@ -232,6 +233,8 @@ int IGRF_loadcoeffs(void)
 	for (l=1; l<=IGRF_ORDER; l++) {
 		k = l * (l+1);    						  /* 1D index for l,m=0 */
 		fscanf(fp, "%c", &jnk);					/* g or h */
+		if (jnk != 'g' && jnk != 'h')   /* for extra character in file */
+			fscanf(fp, "%c", &jnk);     /* g or h */
 		fscanf(fp, "%d %d", &ll, &mm);	/* l amd m */
 		for (n=0; n<nyear; n++) {
 			fscanf(fp, "%lf", &coef);			/* coefficient */
@@ -247,6 +250,8 @@ int IGRF_loadcoeffs(void)
 		for (m=1; m<=l; m++) {
 			k = l * (l+1) + m;						/* 1D index for l,m */
 			fscanf(fp, "%c", &jnk);					/* g or h */
+			if (jnk != 'g' && jnk != 'h')   /* for extra character in file */
+				fscanf(fp, "%c", &jnk);     /* g or h */
 			fscanf(fp, "%d %d", &ll, &mm);	/* l amd m */
 
 			for (n=0; n<nyear; n++) {
@@ -262,6 +267,8 @@ int IGRF_loadcoeffs(void)
 
 			k = l * (l+1) - m;						/* 1D index for l,m */
 			fscanf(fp, "%c", &jnk);					/* g or h */
+			if (jnk != 'g' && jnk != 'h')   /* for extra character in file */
+				fscanf(fp, "%c", &jnk);     /* g or h */
 			fscanf(fp, "%d %d", &ll, &mm);	/* l amd m */
 			for (n=0; n<nyear; n++) {
 				fscanf(fp, "%lf", &coef);			/* coefficient */
@@ -279,7 +286,7 @@ int IGRF_loadcoeffs(void)
 		}
 
 		#if DEBUG > 2
-		pause();
+		igrf_pause();
 		#endif
 	}
 	fclose(fp);
@@ -287,7 +294,7 @@ int IGRF_loadcoeffs(void)
 	#if DEBUG > 1
 	for (n=0; n<nyear; n++)
 		fprintf(stderr, "%04d %f\n", epoch[n], IGRF_coef_set[n][0]);
-	pause();
+	igrf_pause();
 	#endif
 
 	#if DEBUG > 1
@@ -300,7 +307,7 @@ int IGRF_loadcoeffs(void)
 											IGRF_coef_set[(1980-1900)/5][k]);
 		}
 	}
-	pause();
+	igrf_pause();
 	#endif
 
 	return (0);
