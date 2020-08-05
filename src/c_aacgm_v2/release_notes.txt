@@ -1,32 +1,48 @@
 
-v2.4 Changes
-
-+ 20170223
-+ changed time.c and time.h to rtime.c and rtime.h to be consistent with RST
-  distribution and to avoid any conflict with the standard time library.
+v2.6 Changes
 
 Features:
-+ 20170328
-+ Added IGRF_Tilt() function to return IGRF dipole tilt angle.
 
-+ 20160811
-+ Added inverse MLT functions in order to get AACGM-v2 magnetic longitude
-  from MLT
++ 20191228 added AACGM-v2 coefficients derived using IGRF13 model. Note that
+                 
+                 Note that there are some small differences (less than 1 km)
+
+           added file magmodel_1590-2020.txt which contains GUFM1 and IGRF13
+                 coefficients
+
+           added additional checks in igrflib.c for reading new coefficients.
+                 Note: igrf13coeffs.txt had an additional space at the end of
+                       each line that required these additional checks.
+
+           changed error message in aacgmlib_v2.c for date/time out of bounds
 
 Bug fixes:
 
-+ 20170601
-+ added logic to MLT-v2 functions to allow them to set AACGM-v2 date/time
-  and interpolate coefficients under the following conditions:
-    1. the AACGM-v2 date/time is not set
-    2. the date/time passed into the MLT-v2 function differs by > 30 days
-  In each case the AACGM-v2 date/time is set to the values passed into the
-  MLT-v2 function. Note that this will change the AACGM-v2 coefficients that
-  are being used on subsequent calls _if_ the date/time is not reset.
 
-+ 20170531
-+ added 1900 to years in SetNow() function in order for it to work correctly
+v2.5 Changes
 
-+ 20160816
-+ added check for mlon input being NaN and returning NaN if so
+Features:
+
++ 20180508 added AACGM-v2 coefficients for 1590-1895.
+           added functionality to use these coefficients and tracing
+           added file magmodel_1590-2015.txt which contains GUFM1 and IGRF12
+                 coefficients
+
++ 20180614 allow "silent" keyword in AACGM_v2_GetDateTime() DLM (used in
+                 mlt_v2 IDL version), but is ignored since that would require
+                 an additional argument in the C function, further complicating
+                 backward compatibility.
+
+Bug fixes:
+
++ 20170710 added initialization to err variable in MLTConvert_v2 function.
+
++ 20180430 renamed pause() to igrf_pause() to avoid conflict
+
++ 20180430 fixed bug in RK45 for RK4 solution. Moved resetting xyz inside else
+           for adaptive stepsize solver.
+
++ 20180614 fixed oversight bug in inv_MLTConvert_v2() to check for a date that
+           differs from the AACGM date by more than 30 days and recomputes
+           AACGM coefficients if necessary. Now consistent with MLTConver_v2().
 
