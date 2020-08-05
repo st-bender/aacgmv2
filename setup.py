@@ -43,7 +43,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
-    package_data={'aacgmv2': ['aacgm_coeffs/*.asc', 'igrf12coeffs.txt']},
+    package_data={'aacgmv2': ['aacgm_coeffs/*.asc', 'igrf*coeffs.txt', 'magmodel_*.txt']},
     zip_safe=False,
     classifiers=[
         # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
