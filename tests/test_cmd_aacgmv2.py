@@ -24,9 +24,9 @@ def test_module_invocation():
     p.wait()
     data = np.loadtxt('tests/output.txt')
     np.testing.assert_allclose(data,
-            [[57.4761, 93.5572, 1.04566],
-             [58.5332, 93.9607, 1.04561],
-             [59.5852, 94.3897, 1.04556]], rtol=1e-4)
+            [[57.4810, 93.5290, 1.04566],
+             [58.5380, 93.9324, 1.0456],
+             [59.5900, 94.3614, 1.04556]], rtol=1e-4)
 
 
 def test_convert_g2a():
@@ -36,9 +36,9 @@ def test_convert_g2a():
     p.wait()
     data = np.loadtxt('tests/output.txt')
     np.testing.assert_allclose(data,
-            [[57.4761, 93.5572, 1.04566],
-             [58.5332, 93.9607, 1.04561],
-             [59.5852, 94.3897, 1.04556]], rtol=1e-4)
+            [[57.4810, 93.5290, 1.04566],
+             [58.5380, 93.9324, 1.0456],
+             [59.5900, 94.3614, 1.04556]], rtol=1e-4)
 
 
 def test_convert_a2g():
@@ -48,9 +48,9 @@ def test_convert_a2g():
     p.wait()
     data = np.loadtxt('tests/output.txt')
     np.testing.assert_allclose(data,
-            [[51.6547, -66.6601, 306.1758],
-             [52.6725, -66.7555, 306.5446],
-             [53.6914, -66.8552, 306.9103]], rtol=1e-4)
+            [[51.6616, -66.6338, 306.1783],
+             [52.6792, -66.7291, 306.5470],
+             [53.6980, -66.8286, 306.91265]], rtol=1e-4)
 
 
 def test_convert_trace_g2a():
@@ -60,9 +60,9 @@ def test_convert_trace_g2a():
     p.wait()
     data = np.loadtxt('tests/output.txt')
     np.testing.assert_allclose(data,
-            [[57.4736, 93.5676, 1.04566],
-             [58.5305, 93.9716, 1.04561],
-             [59.5825, 94.4009, 1.04556]], rtol=1e-4)
+            [[57.4785, 93.5398, 1.04566],
+             [58.5354, 93.9438, 1.04561],
+             [59.5873, 94.3731, 1.04556]], rtol=1e-4)
 
 
 def test_convert_trace_a2g():
@@ -72,9 +72,9 @@ def test_convert_trace_a2g():
     p.wait()
     data = np.loadtxt('tests/output.txt')
     np.testing.assert_allclose(data,
-            [[51.6454, -66.6444, 306.1725],
-             [52.6671, -66.7432, 306.5426],
-             [53.6899, -66.8469, 306.9098]], rtol=1e-4)
+            [[51.6524, -66.6180, 306.1750],
+             [52.6738, -66.7167, 306.5451],
+             [53.6964, -66.8202, 306.9121]], rtol=1e-4)
 
 
 def test_convert_geocentric():
@@ -84,9 +84,9 @@ def test_convert_geocentric():
     p.wait()
     data = np.loadtxt('tests/output.txt')
     np.testing.assert_allclose(data,
-            [[57.6697, 93.6319, 1.04709],
-             [58.7223, 94.0385, 1.04709],
-             [59.7695, 94.4708, 1.04709]], rtol=1e-4)
+            [[57.6746, 93.6036, 1.0471],
+             [58.7271, 94.0102, 1.0471],
+             [59.7743, 94.4425, 1.0471]], rtol=1e-4)
 
 
 def test_convert_today():
@@ -101,14 +101,14 @@ def test_convert_single_line():
     p.communicate()
     p.wait()
     data = np.loadtxt('tests/output.txt')
-    np.testing.assert_allclose(data, [57.4761, 93.5572, 1.04566], rtol=1e-4)
+    np.testing.assert_allclose(data, [57.4810, 93.5290, 1.04566], rtol=1e-4)
 
 
 def test_convert_stdin_stdout():
     p = subprocess.Popen('echo 60 15 300 | aacgmv2 convert -d 20150224', shell=True, stdout=subprocess.PIPE)
     stdout, _ = p.communicate()
     p.wait()
-    assert b'57.47612194 93.55719875 1.04566346' in stdout
+    assert b'57.48099198 93.52895314 1.04566346' in stdout
 
 
 def test_convert_mlt_a2m():
