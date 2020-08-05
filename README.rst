@@ -21,19 +21,19 @@ Convert between AACGM and geographic coordinates::
     >>> # geo to AACGM, single numbers
     >>> mlat, mlon, malt = convert(60, 15, 300, date(2013, 11, 3))
     >>> "{0:.8f}".format(float(mlat))
-    '57.47207691'
+    '57.47357891'
     >>> "{0:.8f}".format(float(mlon))
-    '93.62138046'
+    '93.61113360'
     >>> "{0:.8f}".format(float(malt))
     '1.04566346'
     >>> # AACGM to geo, mix arrays/numbers
     >>> glat, glon, galt = convert([90, -90], 0, 0, date(2013, 11, 3), a2g=True)
     >>> ["{0:.8f}".format(float(gl)) for gl in glat]
-    ['82.96656071', '-74.33854592']
+    ['82.96859922', '-74.33899667']
     >>> ["{0:.8f}".format(float(gl)) for gl in glon]
-    ['-84.66516034', '125.84014944']
+    ['-84.65010944', '125.84759847']
     >>> ["{0:.8f}".format(float(ga)) for ga in galt]
-    ['14.12439281', '12.87713137']
+    ['14.12457922', '12.87721946']
 
 Convert between AACGM and MLT::
 
@@ -41,7 +41,7 @@ Convert between AACGM and MLT::
     >>> from datetime import datetime
     >>> mlon = convert_mlt([0, 12], datetime(2013, 11, 3, 18, 0), m2a=True)
     >>> ["{0:.8f}".format(float(ml)) for ml in mlon]
-    ['159.08967974', '339.08967974']
+    ['159.08043649', '339.08043649']
 
 If you don't know or use Python, you can also use the command line. See details in the full documentation.
 
