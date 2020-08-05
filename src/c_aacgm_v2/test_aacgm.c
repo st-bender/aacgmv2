@@ -240,3 +240,4 @@ void line(char ch, int n)
   for (k=0;k<n;k++) printf("%c", ch);
   printf("\n");
 }
+

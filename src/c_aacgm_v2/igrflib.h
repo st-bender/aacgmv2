@@ -55,3 +55,4 @@ int AACGM_v2_Newval(double xyz[], int idir, double ds, double k[]);
 int AACGM_v2_RK45(double xyz[], int idir, double *ds, double eps, int code);
 
 #endif
+

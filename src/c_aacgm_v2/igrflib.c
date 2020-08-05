@@ -120,7 +120,7 @@ int IGRF_loadcoeffs(void)
 	/* factorial */
 	fctrl[0] = fctrl[1] = 1.;
 	for (k=2; k<= 2*IGRF_ORDER; k++)
-  	fctrl[k] = k*fctrl[k-1];
+		fctrl[k] = k*fctrl[k-1];
 
 	/*for(k=0; k<=2*IGRF_ORDER; k++) printf("%lf\n", fctrl[k]); */
 
@@ -207,7 +207,7 @@ int IGRF_loadcoeffs(void)
 
 	/* get next line, which should have the following format:
 	 *
-   * "g/h n m 1900.0 1905.0 ... 2010.0 2010-15"
+	 * "g/h n m 1900.0 1905.0 ... 2010.0 2010-15"
 	 */
 	jnk = ' ';
 	while (jnk != 'm') fscanf(fp, "%c", &jnk);
@@ -1341,8 +1341,8 @@ int geoc2geod(double lat, double lon, double r, double llh[])
   kappa = 1. + ee*(sqrt(u+v+w*w) + w)/(u + v);
 
   llh[0] = atan2(z*kappa,sqrt(pp))/DTOR;
-	llh[1] = lon;
-	llh[2] = sqrt(pp + z*z*kappa*kappa)/ee * (1./kappa - k0i);
+  llh[1] = lon;
+  llh[2] = sqrt(pp + z*z*kappa*kappa)/ee * (1./kappa - k0i);
 
   return (0);
 }
@@ -1510,24 +1510,23 @@ int AACGM_v2_RK45(double xyz[], int idir, double *ds, double eps, int code) {
 				/*newds = ds * delt;
 				//ds = newds;*/
 				*ds *= delt;
-
 				/* maximum stepsize is fixed to max_ds in units of Re */
 				/*if keyword_set(max_ds) then ds = min([max_ds,ds])*/
 				/* maximum stepsize is r^2 * 1km, where r is in units of Re */
 				/*if keyword_set(RRds) then   ds = min([50*r*r*r/RE, ds])*/
 				*ds = MIN(50*rtp[0]*rtp[0]*rtp[0]/RE, *ds);
 			}	/* otherwise leave the stepsize alone */
-		}
 
-		/* we use the RK4 solution */
-		for (k=0;k<3;k++) xyz[k] = w1[k];
-		/*
-		; I would assume that using the higher order RK5 method is better, but
-		; there is the suggestion that using the RK4 solution guarantees accuracy
-		; while the RK5 does not. Apparently some texts are now suggesting using
-		; the RK5 solution...
-		for (k=0;k<3;k++) xyz[k] = w2[k];
-		*/
+			/* we use the RK4 solution */
+			for (k=0;k<3;k++) xyz[k] = w1[k];
+			/*
+			; I would assume that using the higher order RK5 method is better, but
+			; there is the suggestion that using the RK4 solution guarantees accuracy
+			; while the RK5 does not. Apparently some texts are now suggesting using
+			; the RK5 solution...
+			for (k=0;k<3;k++) xyz[k] = w2[k];
+			*/
+		}
 	}
 
 	return (0);
