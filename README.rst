@@ -48,7 +48,7 @@ If you don't know or use Python, you can also use the command line. See details 
 Documentation
 =============
 
-https://aacgmv2.readthedocs.org/
+https://aacgm2.readthedocs.org/
 
 Badges
 ======

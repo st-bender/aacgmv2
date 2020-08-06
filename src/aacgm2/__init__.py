@@ -11,7 +11,7 @@ def set_coeff_path():
     '''Sets the environment variables ``AACGM_v2_DAT_PREFIX`` and
     ``IGRF_12_COEFFS`` (for the current process). These are required for the
     C library to function correctly. This function is automatically called
-    when importing aacgmv2. You may need to call this manually if you use
+    when importing aacgm2. You may need to call this manually if you use
     multithreading or spawn child processes (untested).
     '''
     _os.environ['AACGM_v2_DAT_PREFIX'] = AACGM_v2_DAT_PREFIX

@@ -5,7 +5,7 @@ Usage examples
 Python library
 ==============
 
-For full documentation of the functions, see :doc:`Reference → aacgmv2 <reference/aacgmv2>`.
+For full documentation of the functions, see :doc:`Reference → aacgm2 <reference/aacgmv2>`.
 
   >>> from aacgm2 import convert
   >>> from datetime import date
@@ -34,7 +34,7 @@ Command-line interface
 
 .. highlight:: none
 
-The Python package also installs a command called ``aacgmv2`` with two sub-commands, ``aacgmv2 convert`` and ``aacgmv2 convert_mlt``. The command-line interface allows you to make use of the Python library even if you don't know or use Python. See :doc:`Reference → Command-line interface <reference/cli>` for a list of arguments to the commands. Below are some simple usage examples.
+The Python package also installs a command called ``aacgm2`` with two sub-commands, ``aacgm2 convert`` and ``aacgm2 convert_mlt``. The command-line interface allows you to make use of the Python library even if you don't know or use Python. See :doc:`Reference → Command-line interface <reference/cli>` for a list of arguments to the commands. Below are some simple usage examples.
 
 
 Convert geographical/magnetic coordinates
@@ -48,7 +48,7 @@ Produce a file called e.g. ``input.txt`` with the input latitudes, longitudes an
     61 15 300
     62 15 300
 
-To convert this to AACGM-v2 for the date 2015-02-24, run the command ``aacgmv2 convert -i input.txt -o output.txt -d 20150224``. The output file will look like this::
+To convert this to AACGM-v2 for the date 2015-02-24, run the command ``aacgm2 convert -i input.txt -o output.txt -d 20150224``. The output file will look like this::
 
     57.47612194 93.55719875
     58.53323704 93.96069212
@@ -56,7 +56,7 @@ To convert this to AACGM-v2 for the date 2015-02-24, run the command ``aacgmv2 c
 
 Alternatively, you can skip the files and just use command-line piping::
 
-    $ echo 60 15 300 | aacgmv2 convert -d 20150224
+    $ echo 60 15 300 | aacgm2 convert -d 20150224
     57.47612194 93.55719875
 
 
@@ -69,7 +69,7 @@ This works in much the same way as ``convert``. The file should only contain a s
     12
     23
 
-To convert these MLTs to magnetic longitudes at 2015-02-24 14:00:15, run e.g. ``aacgmv2 convert_mlt 20150224140015 -i input.txt -o output.txt -v`` (note that the date/time is a required parameter). The output file will then look like this::
+To convert these MLTs to magnetic longitudes at 2015-02-24 14:00:15, run e.g. ``aacgm2 convert_mlt 20150224140015 -i input.txt -o output.txt -v`` (note that the date/time is a required parameter). The output file will then look like this::
 
     240.13651777
     45.13651777
@@ -77,5 +77,5 @@ To convert these MLTs to magnetic longitudes at 2015-02-24 14:00:15, run e.g. ``
 
 Like with ``convert``, you can use stdin/stdout instead of input/output files::
 
-    $ echo 12 | aacgmv2 convert_mlt 20150224140015 -v
+    $ echo 12 | aacgm2 convert_mlt 20150224140015 -v
     45.13651777

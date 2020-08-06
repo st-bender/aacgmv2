@@ -6,7 +6,7 @@ This package requires NumPy, which you can install alone or as a part of SciPy. 
 
 When you have NumPy, install this package at the command line using ``pip`` [1]_::
 
-    pip install aacgmv2
+    pip install aacgm2
 
 The package has been tested with the following setups (others might work, too):
 

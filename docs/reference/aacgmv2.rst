@@ -1,7 +1,7 @@
-aacgmv2
-=======
+aacgv2
+======
 
-These functions are available when you ``import aacgmv2``.
+These functions are available when you ``import aacgm2``.
 
-.. automodule:: aacgmv2
+.. automodule:: aacgm2
     :members:

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-'''Executed when aacgmv2 is invoked with python -m aacgmv2'''
+'''Executed when aacgm2 is invoked with python -m aacgm2'''
 
 from __future__ import division, print_function, absolute_import
 
