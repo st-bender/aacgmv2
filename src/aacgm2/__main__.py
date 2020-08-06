@@ -11,7 +11,7 @@ import datetime as dt
 
 import numpy as np
 
-import aacgmv2
+import aacgm2 as aacgmv2
 
 try:
     # Python 3

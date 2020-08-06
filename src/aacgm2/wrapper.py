@@ -9,8 +9,8 @@ import warnings
 
 import numpy as np
 
-from aacgmv2._aacgmv2 import A2G, TRACE, BADIDEA, ALLOWTRACE, GEOCENTRIC, setDateTime, aacgmConvert
-from aacgmv2 import IGRF_12_COEFFS
+from aacgm2._aacgmv2 import A2G, TRACE, BADIDEA, ALLOWTRACE, GEOCENTRIC, setDateTime, aacgmConvert
+from aacgm2 import IGRF_12_COEFFS
 
 aacgmConvert_vectorized = np.vectorize(aacgmConvert)
 
