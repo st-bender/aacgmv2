@@ -18,7 +18,7 @@ teardown_function = setup_function
 
 
 def test_module_invocation():
-    p = subprocess.Popen(['python', '-m', 'aacgmv2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
+    p = subprocess.Popen(['python', '-m', 'aacgm2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
                           '-o', 'tests/output.txt'])
     p.communicate()
     p.wait()
@@ -30,7 +30,7 @@ def test_module_invocation():
 
 
 def test_convert_g2a():
-    p = subprocess.Popen(['aacgmv2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
+    p = subprocess.Popen(['aacgm2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
                           '-o', 'tests/output.txt'])
     p.communicate()
     p.wait()
@@ -42,7 +42,7 @@ def test_convert_g2a():
 
 
 def test_convert_a2g():
-    p = subprocess.Popen(['aacgmv2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
+    p = subprocess.Popen(['aacgm2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
                           '-o', 'tests/output.txt', '-v'])
     p.communicate()
     p.wait()
@@ -54,7 +54,7 @@ def test_convert_a2g():
 
 
 def test_convert_trace_g2a():
-    p = subprocess.Popen(['aacgmv2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
+    p = subprocess.Popen(['aacgm2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
                           '-o', 'tests/output.txt', '-t'])
     p.communicate()
     p.wait()
@@ -66,7 +66,7 @@ def test_convert_trace_g2a():
 
 
 def test_convert_trace_a2g():
-    p = subprocess.Popen(['aacgmv2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
+    p = subprocess.Popen(['aacgm2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
                           '-o', 'tests/output.txt', '-t', '-v'])
     p.communicate()
     p.wait()
@@ -78,7 +78,7 @@ def test_convert_trace_a2g():
 
 
 def test_convert_geocentric():
-    p = subprocess.Popen(['aacgmv2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
+    p = subprocess.Popen(['aacgm2', 'convert', '-i', 'tests/test_convert.txt', '-d', '20150224',
                           '-o', 'tests/output.txt', '-g'])
     p.communicate()
     p.wait()
@@ -90,13 +90,13 @@ def test_convert_geocentric():
 
 
 def test_convert_today():
-    p = subprocess.Popen(['aacgmv2', 'convert', '-i', 'tests/test_convert.txt'])
+    p = subprocess.Popen(['aacgm2', 'convert', '-i', 'tests/test_convert.txt'])
     p.communicate()
     p.wait()
 
 
 def test_convert_single_line():
-    p = subprocess.Popen(['aacgmv2', 'convert', '-i', 'tests/test_convert_single_line.txt',
+    p = subprocess.Popen(['aacgm2', 'convert', '-i', 'tests/test_convert_single_line.txt',
                           '-d', '20150224', '-o', 'tests/output.txt'])
     p.communicate()
     p.wait()
@@ -105,14 +105,14 @@ def test_convert_single_line():
 
 
 def test_convert_stdin_stdout():
-    p = subprocess.Popen('echo 60 15 300 | aacgmv2 convert -d 20150224', shell=True, stdout=subprocess.PIPE)
+    p = subprocess.Popen('echo 60 15 300 | aacgm2 convert -d 20150224', shell=True, stdout=subprocess.PIPE)
     stdout, _ = p.communicate()
     p.wait()
     assert b'57.48099198 93.52895314 1.04566346' in stdout
 
 
 def test_convert_mlt_a2m():
-    p = subprocess.Popen(['aacgmv2', 'convert_mlt', '-i', 'tests/test_convert_mlt.txt',
+    p = subprocess.Popen(['aacgm2', 'convert_mlt', '-i', 'tests/test_convert_mlt.txt',
                           '20150224140015', '-o', 'tests/output.txt'])
     p.communicate()
     p.wait()
@@ -121,7 +121,7 @@ def test_convert_mlt_a2m():
 
 
 def test_convert_mlt_m2a():
-    p = subprocess.Popen(['aacgmv2', 'convert_mlt', '-i', 'tests/test_convert_mlt.txt',
+    p = subprocess.Popen(['aacgm2', 'convert_mlt', '-i', 'tests/test_convert_mlt.txt',
                           '20150224140015', '-o', 'tests/output.txt', '-v'])
     p.communicate()
     p.wait()
@@ -130,7 +130,7 @@ def test_convert_mlt_m2a():
 
 
 def test_convert_mlt_single_line():
-    p = subprocess.Popen(['aacgmv2', 'convert_mlt', '-i', 'tests/test_convert_mlt_single_line.txt',
+    p = subprocess.Popen(['aacgm2', 'convert_mlt', '-i', 'tests/test_convert_mlt_single_line.txt',
                           '20150224140015', '-o', 'tests/output.txt'])
     p.communicate()
     p.wait()
@@ -139,14 +139,14 @@ def test_convert_mlt_single_line():
 
 
 def test_convert_mlt_stdin_stdout():
-    p = subprocess.Popen('echo 12 | aacgmv2 convert_mlt -v 20150224140015', shell=True, stdout=subprocess.PIPE)
+    p = subprocess.Popen('echo 12 | aacgm2 convert_mlt -v 20150224140015', shell=True, stdout=subprocess.PIPE)
     stdout, _ = p.communicate()
     p.wait()
     assert b'45.12689024' in stdout
 
 
 def test_convert_mlt_stdin_stdout_order():
-    p = subprocess.Popen('echo 12 | aacgmv2 convert_mlt 20150224140015 -v', shell=True, stdout=subprocess.PIPE)
+    p = subprocess.Popen('echo 12 | aacgm2 convert_mlt 20150224140015 -v', shell=True, stdout=subprocess.PIPE)
     stdout, _ = p.communicate()
     p.wait()
     assert b'45.12689024' in stdout

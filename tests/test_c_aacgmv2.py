@@ -3,8 +3,8 @@ from __future__ import division, print_function, absolute_import, unicode_litera
 import numpy as np
 import pytest
 
-import aacgmv2
-from aacgmv2._aacgmv2 import A2G, G2A, TRACE, BADIDEA, ALLOWTRACE, GEOCENTRIC
+import aacgm2 as aacgmv2
+from aacgm2._aacgmv2 import A2G, G2A, TRACE, BADIDEA, ALLOWTRACE, GEOCENTRIC
 
 
 def test_module_structure():
