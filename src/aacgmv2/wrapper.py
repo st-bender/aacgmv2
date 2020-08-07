@@ -6,7 +6,6 @@ from __future__ import division, print_function, absolute_import, unicode_litera
 import datetime as dt
 import calendar
 import warnings
-import os as _os
 
 import numpy as np
 
