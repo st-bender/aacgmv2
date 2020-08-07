@@ -1,29 +1,41 @@
+dist: xenial
 language: python
-python: '3.5'
-sudo: false
 env:
   global:
     LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
-  matrix:
-    - TOXENV=check
-    - TOXENV=2.7-np1.10,extension-coveralls,coveralls
-    - TOXENV=2.7-np1.10-nocover
-    - TOXENV=2.7-np1.8,extension-coveralls,coveralls
-    - TOXENV=2.7-np1.8-nocover
-    - TOXENV=2.7-np1.9,extension-coveralls,coveralls
-    - TOXENV=2.7-np1.9-nocover
-    - TOXENV=3.4-np1.10,extension-coveralls,coveralls
-    - TOXENV=3.4-np1.10-nocover
-    - TOXENV=3.4-np1.8,extension-coveralls,coveralls
-    - TOXENV=3.4-np1.8-nocover
-    - TOXENV=3.4-np1.9,extension-coveralls,coveralls
-    - TOXENV=3.4-np1.9-nocover
-    - TOXENV=3.5-np1.10,extension-coveralls,coveralls
-    - TOXENV=3.5-np1.10-nocover
-    - TOXENV=3.5-np1.8,extension-coveralls,coveralls
-    - TOXENV=3.5-np1.8-nocover
-    - TOXENV=3.5-np1.9,extension-coveralls,coveralls
-    - TOXENV=3.5-np1.9-nocover
+matrix:
+  include:
+    - python: 3.8
+      env: TOXENV=check
+    - python: 3.8
+      env: TOXENV=docs
+    - python: 2.7
+      env: TOXENV=2.7,extension-coveralls,coveralls
+    - python: 2.7
+      env: TOXENV=2.7-nocover
+    - python: 3.4
+      env: TOXENV=3.4,extension-coveralls,coveralls
+    - python: 3.4
+      env: TOXENV=3.4-nocover
+    - python: 3.5
+      env: TOXENV=3.5,extension-coveralls,coveralls
+    - python: 3.5
+      env: TOXENV=3.5-nocover
+    - python: 3.6
+      env: TOXENV=3.6,extension-coveralls,coveralls
+    - python: 3.6
+      env: TOXENV=3.6-nocover
+    - python: 3.7
+      env: TOXENV=3.7,extension-coveralls,coveralls
+    - python: 3.7
+      env: TOXENV=3.7-nocover
+    - python: 3.8
+      env: TOXENV=3.8,extension-coveralls,coveralls
+    - python: 3.8
+      env: TOXENV=3.8-nocover
+  allow_failures:
+    - env: "TOXENV=check"
+    - env: "TOXENV=docs"
 before_install:
   - python --version
   - uname -a
@@ -47,6 +59,3 @@ notifications:
   email:
     on_success: never
     on_failure: always
-matrix:
-  allow_failures:
-    - env: "TOXENV=check"
