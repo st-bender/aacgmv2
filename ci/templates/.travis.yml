@@ -1,15 +1,22 @@
+dist: xenial
 language: python
-python: '3.5'
-sudo: false
 env:
   global:
     LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
-  matrix:
-    - TOXENV=check
+matrix:
+  include:
+    - python: 3.8
+      env: TOXENV=check
+    - python: 3.8
+      env: TOXENV=docs
 {% for env, config in tox_environments|dictsort %}
-    - TOXENV={{ env }}{% if config.cover %},extension-coveralls,coveralls{% endif %}
+    - python: {{ env|truncate(3, end="") }}
+      env: TOXENV={{ env }}{% if config.cover %},extension-coveralls,coveralls{% endif %}
 
 {% endfor %}
+  allow_failures:
+    - env: "TOXENV=check"
+    - env: "TOXENV=docs"
 before_install:
   - python --version
   - uname -a
@@ -33,6 +40,3 @@ notifications:
   email:
     on_success: never
     on_failure: always
-matrix:
-  allow_failures:
-    - env: "TOXENV=check"
