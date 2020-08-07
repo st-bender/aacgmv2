@@ -95,6 +95,11 @@ init:
   - ps: echo $env:TOXENV
   - ps: ls C:\Python*
 install:
+  # Search for [ci skip] or [skip ci] and exit if found in full commit message
+  # https://github.com/appveyor/ci/issues/1865#issuecomment-423091750
+  # https://github.com/appveyor/ci/issues/1865
+  - ps: $commit=$env:APPVEYOR_REPO_COMMIT_MESSAGE + $env:APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED
+  - ps: If ($commit.Contains("[skip ci]") -Or $commit.Contains("[ci skip]")) { Exit-AppVeyorBuild }
   # from tornado
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - python --version
