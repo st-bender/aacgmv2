@@ -61,7 +61,6 @@ Badges
     * - tests
       - | |travis| |appveyor| |requires|
         | |coveralls| |codecov|
-        | |landscape|  |codeclimate|
         | |scrutinizer| |codacy|
     * - package
       - | |version| |supported-versions|
@@ -91,17 +90,10 @@ Badges
     :alt: Coverage Status
     :target: https://codecov.io/github/st-bender/aacgmv2
 
-.. |landscape| image:: https://landscape.io/github/cmeeren/aacgmv2/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/cmeeren/aacgmv2/master
-    :alt: Code Quality Status
-
 .. |codacy| image:: https://img.shields.io/codacy/grade/2b9d243afe654cb0a70c31544444c774.svg?style=flat
     :target: https://www.codacy.com/app/st-bender/aacgmv2
     :alt: Codacy Code Quality Status
 
-.. |codeclimate| image:: https://codeclimate.com/github/cmeeren/aacgmv2/badges/gpa.svg
-   :target: https://codeclimate.com/github/cmeeren/aacgmv2
-   :alt: CodeClimate Quality Status
 .. |version| image:: https://img.shields.io/pypi/v/aacgmv2.svg?style=flat
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/aacgmv2
