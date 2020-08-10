@@ -66,8 +66,8 @@ Badges
       - | |version| |supported-versions|
         | |wheel| |supported-implementations|
 
-.. |docs| image:: https://readthedocs.org/projects/aacgmv2/badge/?version=stable&style=flat
-    :target: https://readthedocs.org/projects/aacgmv2
+.. |docs| image:: https://readthedocs.org/projects/aacgm2/badge/?version=stable&style=flat
+    :target: https://aacgm2.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
 .. |travis| image:: https://travis-ci.org/st-bender/aacgmv2.svg?branch=master
