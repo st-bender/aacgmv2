@@ -80,7 +80,7 @@ before_deploy:
     export CIBW_MANYLINUX1_X86_64_IMAGE="quay.io/pypa/manylinux1_x86_64:2020-01-31-d8fa357"
     cibuildwheel --output-dir dist
     unset CIBW_BUILD CIBW_MANYLINUX1_I686_IMAGE CIBW_MANYLINUX1_X86_64_IMAGE
-    pip install -U cibuildwheel==1.1.0
+    pip install -U cibuildwheel==1.5.5
     cibuildwheel --output-dir dist
     ls -alF dist/
 deploy:
