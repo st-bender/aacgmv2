@@ -1,4 +1,4 @@
-aacgv2
+aacgm2
 ======
 
 These functions are available when you ``import aacgm2``.
