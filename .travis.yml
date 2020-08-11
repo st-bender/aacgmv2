@@ -85,9 +85,8 @@ deploy:
     skip_existing: true
     on:
       repo: st-bender/aacgmv2
-      branches:
-        only:
-          - master
-          - ci_playground
+      branch:
+        - master
+        - ci_playground
       tags: false
       condition: $TOXENV == "check"
