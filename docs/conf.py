@@ -23,7 +23,7 @@ if os.getenv('SPELLCHECK'):
 source_suffix = '.rst'
 master_doc = 'index'
 project = u'AACGM-v2 Python library'
-year = u'2015--2018'
+year = u'2015--2020'
 author = u'Stefan Bender, Angeline G. Burrell, Christer van der Meeren'
 copyright = '{0}, {1}'.format(year, author)
 version = release = __version__
