@@ -91,7 +91,7 @@ setup(
                       'src/c_aacgm_v2/igrflib.c',
                       'src/c_aacgm_v2/mlt_v2.c',
                       'src/c_aacgm_v2/rtime.c'],
-                  extra_compile_args=['-std=c99 -D_USE_MATH_DEFINES'],
+                  extra_compile_args=['-D_USE_MATH_DEFINES -std=c99'],
                   include_dirs=['src/c_aacgm_v2'])
     ],
     entry_points={
