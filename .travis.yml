@@ -33,6 +33,16 @@ matrix:
       env: TOXENV=3.8,extension-coveralls,coveralls
     - python: 3.8
       env: TOXENV=3.8-nocover
+    - os: osx
+      language: shell
+      env: TOXENV=check
+    - os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.8.0
+        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+      env: TOXENV=check
+
   allow_failures:
     - env: "TOXENV=check"
     - env: "TOXENV=docs"
