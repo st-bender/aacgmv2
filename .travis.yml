@@ -49,11 +49,12 @@ matrix:
       before_install:
         - choco install python --version 3.8.0
         - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
-      env: TOXENV=check
+      env: LD_PRELOAD= TOXENV=check
 
   allow_failures:
     - env: "TOXENV=check"
     - env: "TOXENV=docs"
+    - os: windows
 before_install:
   - python --version
 install:
