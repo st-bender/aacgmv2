@@ -81,7 +81,7 @@ deploy:
     server: https://test.pypi.org/legacy/
     user: __token__
     password:
-      secure: $TEST_PYPI_ETOKEN
+      secure: "XSyr5NqoYbXt97yYVbbYZdCWpRYcChteojBtxer/+pOh8+XTSFRNcjOB4NKlPFOYV9D9a+WV2bZh3Hg97rmu+xKWogtYAncOKL40L6R/TzMS0eb9d5eVAfSPYkyL29ddxE6bVh8nJybOHqhoAAV7dEeGBYabmB3fiedF0oNjGXv9/E3/LdN4GUNVA6z074o696IzS8SwbB4gdLmfBHksAYTzrFXq+BUXs827z7aTr/oIMjt8h3JmI6RDy29ApfgerOTLPRo9c6m714y4ycPtqGQiSxLuT338iVr4qkilmebi82r0Ax0LWz6rR0E0I7Zf5NL1jlsPo64/8BN9ga7Fs6/tnbAJHhEdoKqGBoQx4t4COxVbtlbAb8DJWxfdexQLoWEwWBvpCjSTW2+LN6tn2y6OIv5yp7gpUdKxhT3vsvfmDboR1gIpGdE9V0Rl18fn3kyYoonsIH7WbuIBHlYT/fvUlNlPuJQ3938OoLNTPVyRmnxFUzuBK+cxf5yp00rZ3iGaPnMbQkQal1aRrGyMj1e7owVnQH8FmjfPUEd5S6bjufs+IMtm5GpJVir0AzsfpdO/eMSSQtnNsXY2c8raBcD5GTEd7/0RBFaiQnKmnREL95sZW3KeF0T6zUajB5FxncD7l0vYKXF0ZPgTODtRoO9ISFVijTkcYLzGLyztiwc="
     skip_existing: true
     on:
       repo: st-bender/aacgmv2
