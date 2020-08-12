@@ -91,3 +91,15 @@ deploy:
         - master
       tags: false
       condition: $TOXENV == "check"
+  - provider: pypi
+    edge: true
+    user: __token__
+    password:
+      secure: "fbCSp+/t3uvzfJSlcJRWxrPXaWkAms3ujQxSnk10zG7noRNzPUY01tGZgZOmZnYNXNHhtNmA8XQN0MJTdzXMoWcKFCW84b+2WgjVC1yHuzA8C53quww2LIPqgWjsf7dn8Tlj6tfVOtz5P3iR4vxw35BJYwM24auUYH2tKAC7ppxPRGYqLLOVcNU3DaDss6g2LS84Fxu3GmVGN3slOfhqJ4fBNZgBW8eK+453BxZIpmLAFfVH8Mn9gTDmpYr+utw1XwGfD7YLXmr+LLPgMKphvomwDLXKdJ9FZ8GBnFXbQN0+17zsaKqnrDfbvB/WQoI9QsHb+5X+CqJzV/ycGe651ERajHeTwdYeCGJ5tz1SrtrBK8vfapOoy1dtJCbXjWn24JHKdGlLmUzfPEPMNxoOqh8bDiWIdf3NZjGDiI+SnYDT+VGem80irBCPkDE7CKumiptLfUbgEuJkcNv4G0m2mLR7xDmEEGW45r1Ph3KtS3sOOZf6rEQEwW2DW7586XRvpvJyFwLSisufxXfyuxmfcyFOCqwlBGQRQZrdvKwanIXLx74Qlg3uHoqKlw1BP5sjYjgpjd9hhqGQZkUTmqyisd2ejLQTg3Mi0IDgfsrHtjPhkw8snf/j3UBKOvECv5uJ3OB6/iU/90Zc3ZIlXbgITg4B3CdvpO8laAaaOcE3W/Y="
+    skip_existing: true
+    on:
+      repo: st-bender/aacgmv2
+      branch:
+        - master
+      tags: true
+      condition: $TOXENV == "check"
