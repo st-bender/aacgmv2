@@ -7,13 +7,13 @@ Bug reports, feature suggestions and other contributions are greatly appreciated
 Short version
 =============
 
-* Submit bug reports and feature requests at `GitHub <https://github.com/cmeeren/aacgmv2/issues>`_
+* Submit bug reports and feature requests at `GitHub <https://github.com/st-bender/aacgmv2/issues>`_
 * Make pull requests to the ``develop`` branch
 
 Bug reports
 ===========
 
-When `reporting a bug <https://github.com/cmeeren/aacgmv2/issues>`_ please include:
+When `reporting a bug <https://github.com/st-bender/aacgmv2/issues>`_ please include:
 
 * Your operating system name and version
 * Any details about your local setup that might be helpful in troubleshooting
@@ -22,7 +22,7 @@ When `reporting a bug <https://github.com/cmeeren/aacgmv2/issues>`_ please inclu
 Feature requests and feedback
 =============================
 
-The best way to send feedback is to file an issue at `GitHub <https://github.com/cmeeren/aacgmv2/issues>`_.
+The best way to send feedback is to file an issue at `GitHub <https://github.com/st-bender/aacgmv2/issues>`_.
 
 If you are proposing a feature:
 
@@ -33,9 +33,9 @@ If you are proposing a feature:
 Development
 ===========
 
-To set up `aacgmv2` for local development:
+To set up `aacgm2` for local development:
 
-1. `Fork aacgmv2 on GitHub <https://github.com/cmeeren/aacgmv2/fork>`_.
+1. `Fork aacgm2 on GitHub <https://github.com/st-bender/aacgmv2/fork>`_.
 2. Clone your fork locally::
 
     git clone git@github.com:your_name_here/aacgmv2.git
