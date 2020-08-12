@@ -61,6 +61,18 @@ To set up `aacgm2` for local development:
 Pull Request Guidelines
 -----------------------
 
+One simple guideline: **Don't break userspace!**
+That is, changing the public interface in a backwards-incompatible way is
+**strongly discouraged**.
+Although this package is not as essential as an operating system kernel,
+remember that there may be people out there that use this package.
+Changing the interface in an incompatible way will break their setup and cause headaches.
+So be kind to others and avoid such cases as much as possible,
+it is exactly the reason why this fork exists at all.
+You can read more about why keeping an API stable is a
+`good thing <https://yarchive.net/comp/linux/gcc_vs_kernel_stability.html>`_,
+and the `kernel documentation <https://www.kernel.org/doc/Documentation/ABI/README>`_.
+
 If you need some code review or feedback while you're developing the code, just make a pull request.
 
 For merging, you should:
