@@ -14,9 +14,30 @@ matrix:
       env: TOXENV={{ env }}{% if config.cover %},extension-coveralls,coveralls{% endif %}
 
 {% endfor %}
+    - os: osx
+      osx_image: xcode12
+      language: shell
+      env: TOXENV=check
+      before_deploy:
+        - python3 -m venv venv
+        - source venv/bin/activate
+        - which pip python pip3 python3
+        - pip install -U cibuildwheel==1.5.5
+        - CIBW_SKIP="pp*" cibuildwheel --output-dir dist
+        - ls -alF dist/
+      before_install:
+        - python --version
+        - uname -a
+    - os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.8.0
+        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+      env: LD_PRELOAD= TOXENV=check
   allow_failures:
     - env: "TOXENV=check"
     - env: "TOXENV=docs"
+    - os: windows
 before_install:
   - python --version
   - uname -a
