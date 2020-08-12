@@ -23,6 +23,19 @@ def read(*names, **kwargs):
     ).read()
 
 
+def find_meta(meta, *path):
+    """
+    Extract __*meta*__ from *path* (can have multiple components)
+    """
+    meta_file = read(*path)
+    meta_match = re.search(
+        r"^__{meta}__ = ['\"]([^'\"]*)['\"]".format(meta=meta), meta_file, re.M
+    )
+    if not meta_match:
+        raise RuntimeError("__{meta}__ string not found.".format(meta=meta))
+    return meta_match.group(1)
+
+
 # enable code coverage for C code
 # We can't use CFLAGS=-coverage in tox.ini, since that may mess with
 # compiling dependencies (e.g. numpy). Therefore we set PY_CCOV=-coverage
@@ -30,13 +43,22 @@ def read(*names, **kwargs):
 if 'PY_CCOV' in os.environ.keys():
     os.environ['CFLAGS'] = os.environ['PY_CCOV']
 
+name = "aacgm2"
+meta_path = os.path.join("src", name, "__init__.py")
+version = find_meta("version", meta_path)
+long_description = '%s\n%s' % (
+    read('README.rst'),
+    re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
+)
+
 
 setup(
-    name='aacgm2',
-    version='2.3.9',
+    name=name,
+    version=version,
     license='MIT',
     description='A Python wrapper for AACGM-v2 magnetic coordinates',
-    long_description='%s\n%s' % (read('README.rst'), re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))),
+    long_description=long_description,
+    long_description_content_type='text/x-rst',
     author='Angeline G. Burrell, Christer van der Meeren',
     author_email='angeline.burrell@nrl.navy.mil',
     maintainer='Stefan Bender',
