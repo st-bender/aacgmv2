@@ -1,6 +1,21 @@
 
 Changelog
 =========
+2.6.0-rc1 (2020-08-12)
+-----------------------------------------
+* Updated AACGM-v2 coefficients derived using the IGRF13 model
+* Updated IGRF and GUFM1 coefficients using the IGRF13 model
+* Added additional checks to the C code for reading the IGRF13 coefficient file
+* Updated CI setup on travis and appveyor
+* Deployment of linux and osx wheels to the package index
+* Changed version support to 2.7, 3.4, 3.5, 3.6, 3.7, and 3.8
+* Updated test values to match new coefficients
+
+
+2.5.0 (unreleased)
+-----------------------------------------
+* Updated C code and coefficients to version 2.5.
+
 
 2.3.9 (2018-05-27)
 -----------------------------------------
