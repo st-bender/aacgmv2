@@ -94,25 +94,25 @@ Badges
     :target: https://www.codacy.com/app/st-bender/aacgmv2
     :alt: Codacy Code Quality Status
 
-.. |version| image:: https://img.shields.io/pypi/v/aacgmv2.svg?style=flat
+.. |version| image:: https://img.shields.io/pypi/v/aacgm2.svg?style=flat
     :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/aacgmv2
+    :target: https://pypi.org/project/aacgm2
 
-.. |downloads| image:: https://img.shields.io/pypi/dm/aacgmv2.svg?style=flat
+.. |downloads| image:: https://img.shields.io/pypi/dm/aacgm2.svg?style=flat
     :alt: PyPI Package monthly downloads
-    :target: https://pypi.python.org/pypi/aacgmv2
+    :target: https://pypi.org/project/aacgm2
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/aacgmv2.svg?style=flat
+.. |wheel| image:: https://img.shields.io/pypi/wheel/aacgm2.svg?style=flat
     :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/aacgmv2
+    :target: https://pypi.org/project/aacgm2
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/aacgmv2.svg?style=flat
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/aacgm2.svg?style=flat
     :alt: Supported versions
-    :target: https://pypi.python.org/pypi/aacgmv2
+    :target: https://pypi.org/project/aacgm2
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/aacgmv2.svg?style=flat
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/aacgm2.svg?style=flat
     :alt: Supported implementations
-    :target: https://pypi.python.org/pypi/aacgmv2
+    :target: https://pypi.org/project/aacgm2
 
 .. |scrutinizer| image:: https://img.shields.io/scrutinizer/g/st-bender/aacgmv2/master.svg?style=flat
     :alt: Scrutinizer Status
