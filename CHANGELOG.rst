@@ -1,6 +1,11 @@
 
 Changelog
 =========
+2.6.0-rc2 (2020-08-14)
+-----------------------------------------
+* Binary wheels for MacOSX
+
+
 2.6.0-rc1 (2020-08-12)
 -----------------------------------------
 * Updated AACGM-v2 coefficients derived using the IGRF13 model
