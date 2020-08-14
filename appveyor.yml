@@ -122,7 +122,7 @@ after_test:
   - IF "%TOXENV%"=="check" (python setup.py sdist)
   - IF "%APPVEYOR_REPO_TAG%"=="true" IF "%TOXENV%"=="check" (
       python -m pip install cibuildwheel==1.5.5 twine &&
-      python -m cibuildwheel --output-dir dist
+      python -m cibuildwheel --output-dir dist &&
       python -m twine upload -u __token__ -p %PYPI_PASS% dist/*
     )
 
