@@ -3,6 +3,8 @@ build: off
 environment:
   global:
     WITH_COMPILER: 'cmd /E:ON /V:ON /C .\ci\appveyor-with-compiler.cmd'
+    PYPI_PASS:
+      secure: Z/l1zigTZhGlPitWhwiW0Ex9ySRKdLuQphMQKHGkriFdvIKYDpoNH4xUDwj/hcRovQXkqyhVSZi9Yv7HVLPpwfySyJ3s0Q30ErJj1xbdmlgSEt+wQJov/nfINOR7rmNrt0PPvqiTLe0UPb+ZBKC3+yLhtNiPpXNyu0OrHwU1PS0tWvbiW/GoRfMP/c6SssSAenlXSibCRlaLpIooIWyuZdNycJBd+9FfiJ07DJjJB1gHlZSNUsfinXyv
   matrix:
     - TOXENV: check
       PYTHON: C:\Python38
@@ -59,11 +61,11 @@ test_script:
 
 after_test:
   # if tagged commit, build/upload wheel
-  - IF "%TOXENV%"=="2.7-buildonly-nocover" IF "%PYTHON_ARCH%"=="32" (%WITH_COMPILER% %TOXPYTHON% setup.py sdist)
-  - IF "%APPVEYOR_REPO_TAG%"=="true" IF NOT "%TOXENV%"=="%TOXENV:buildonly=%" (
-      %WITH_COMPILER% %TOXPYTHON% setup.py bdist_wheel &&
-      %PYTHON_HOME%\Scripts\pip install twine &&
-      %PYTHON_HOME%\Scripts\twine upload -u %PYPI_USER% -p %PYPI_PASS% dist/*
+  - IF "%TOXENV%"=="check" (python setup.py sdist)
+  - IF "%APPVEYOR_REPO_TAG%"=="true" IF "%TOXENV%"=="check" (
+      python -m pip install cibuildwheel==1.5.5 twine &&
+      python -m cibuildwheel --output-dir dist
+      python -m twine upload -u __token__ -p %PYPI_PASS% dist/*
     )
 
 on_failure:
