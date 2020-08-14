@@ -61,7 +61,7 @@ To set up `aacgm2` for local development:
 Pull Request Guidelines
 -----------------------
 
-One simple guideline: **Don't break userspace!**
+One simple guideline: **Don't break userspace.**
 That is, changing the public interface in a backwards-incompatible way is
 **strongly discouraged**.
 Although this package is not as essential as an operating system kernel,
